@@ -1,32 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="card">
-<h1>Movies for {{ user.name }}</h1>
-<ul>
-    {% for movie in movies %}
-    <li>
-        <strong>{{ movie.name }}</strong> ({{ movie.year or "Unknown" }})<br>
-        Directed by {{ movie.director or "Unknown" }}<br>
-        {% if movie.poster_url %}
-            <img src="{{ movie.poster_url }}" alt="Poster for {{ movie.name }}" width="120"><br>
-        {% endif %}
-        <form method="POST" action="{{ url_for('update_movie', user_id=user.id, movie_id=movie.id) }}">
-            <input type="text" name="new_title" placeholder="New title" required>
-            <button type="submit">Update</button>
-        </form>
-        <form method="POST" action="{{ url_for('delete_movie', user_id=user.id, movie_id=movie.id) }}">
-            <button type="submit" class="danger">Delete</button>
-        </form>
-    </li>
-    {% else %}
+    <h1>Movies for {{ user.name }}</h1>
+    <ul>
+        {% for movie in movies %}
+        <li>
+            <strong>{{ movie.name }}</strong> ({{ movie.year or "Unknown" }})<br>
+            Directed by {{ movie.director or "Unknown" }}<br>
+            {% if movie.poster_url %}
+                <img src="{{ movie.poster_url }}" alt="Poster for {{ movie.name }}" width="120"><br>
+            {% endif %}
+
+            <!-- Inline form row -->
+            <div class="form-actions">
+                <form method="POST" action="{{ url_for('update_movie', user_id=user.id, movie_id=movie.id) }}">
+                    <input type="text" name="new_title" placeholder="New title" required>
+                    <button type="submit">Update</button>
+                </form>
+                <form method="POST" action="{{ url_for('delete_movie', user_id=user.id, movie_id=movie.id) }}">
+                    <button type="submit" class="danger">Delete</button>
+                </form>
+            </div>
+        </li>
+        {% else %}
         <li>No movies yet.</li>
-    {% endfor %}
-</ul>
-<h2>Add a new movie</h2>
-<form method="POST" action="{{ url_for('user_movies', user_id=user.id) }}">
-    <input type="text" name="title" placeholder="Enter movie title" required>
-    <button type="submit">Add Movie</button>
-</form>
-<a href="{{ url_for('index') }}">⬅ Back to Users</a>
+        {% endfor %}
+    </ul>
+
+    <h2>Add a new movie</h2>
+    <form method="POST" action="{{ url_for('user_movies', user_id=user.id) }}">
+        <input type="text" name="title" placeholder="Enter movie title" required>
+        <button type="submit">Add Movie</button>
+    </form>
+
+    <a href="{{ url_for('index') }}" class="back-button">⬅ Back to Users</a>
 </div>
 {% endblock %}

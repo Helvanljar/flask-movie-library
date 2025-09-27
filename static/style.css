@@ -1,12 +1,198 @@
-body { font-family: Arial, sans-serif; background: #f7f9fc; margin:0; padding:0; }
-header { background:#222; color:white; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
-header nav a { color:white; margin-left:1rem; text-decoration:none; font-weight:bold; }
-main.container { max-width:800px; margin:2rem auto; padding:1rem; }
-.card { background:white; padding:2rem; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-ul { list-style:none; padding:0; }
-li { margin:0.5rem 0; padding:0.5rem; background:#fafafa; border-radius:6px; }
-button { background:#007BFF; color:white; border:none; padding:0.5rem 1rem; border-radius:4px; cursor:pointer; }
-button:hover { background:#0056b3; }
-button.danger { background:#dc3545; }
-button.danger:hover { background:#a71d2a; }
-footer { text-align:center; padding:1rem; color:#555; }
+/* Global */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f2f2f7;
+    color: #1c1c1e;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.logo-link {
+    color: #007aff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Container */
+main.container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Card */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 0.5rem 0 1rem 0;
+}
+
+/* User list items */
+ul li a {
+    display: block;
+    padding: 0.8rem 1rem;
+    background: #f2f2f7;
+    border-radius: 12px;
+    color: #007aff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+ul li a:hover {
+    background: #e5e5ea;
+    color: #005bb5;
+}
+
+/* Buttons */
+button,
+input[type="submit"] {
+    background: #007aff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: #005bb5;
+    transform: scale(1.02);
+    color: white;
+}
+
+/* Danger button */
+button.danger {
+    background: #ff3b30;
+}
+
+button.danger:hover {
+    background: #d32f2f;
+}
+
+/* Back button */
+.back-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: #e5e5ea;
+    color: #007aff;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.back-button:hover {
+    background: #d1d1d6;
+}
+
+/* Inputs */
+input[type="text"] {
+    width: 100%;
+    max-width: calc(100% - 2rem);
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(0,122,255,0.2);
+    outline: none;
+}
+
+/* Inline row for update + delete */
+.form-actions {
+    display: flex;
+    gap: 0.8rem;          /* spacing between input, update, delete */
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.form-actions form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    gap: 0.8rem;
+}
+
+.form-actions input[type="text"] {
+    flex: 1;
+    margin: 0;
+}
+
+.form-actions button {
+    flex-shrink: 0;
+}
+
+/* Flash messages */
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.flashes li {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.flashes li.success {
+    background: #34c759; /* iOS green */
+    color: white;
+}
+
+.flashes li.error {
+    background: #ff3b30; /* iOS red */
+    color: white;
+}
+
+.flashes li.warning {
+    background: #ffcc00; /* iOS yellow */
+    color: #1c1c1e;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #8e8e93;
+    font-size: 0.9rem;
+}
