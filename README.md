@@ -1,56 +1,30 @@
-# 🎥 Flask Movie Library
+# 🎥 MoviWeb App
 
-A Flask web application where users can register and manage a personal list of favorite movies.  
-Movie details (title, director, year, poster) are fetched from the [OMDb API](http://www.omdbapi.com/).
+A Flask web application where users can manage their favorite movies. Movies are fetched dynamically from the OMDb API.
 
----
+## Features
+- User registration & selection
+- Add, update, and delete favorite movies
+- Fetch movie details (title, year, director, poster) from OMDb
+- iOS-inspired design (rounded cards, blue buttons)
+- Error handling with:
+  - Flash messages for success/error
+  - Custom 404 and 500 pages
+- Health check endpoint: `/health` (returns JSON with status & user count)
 
-## 🚀 Features
+## Setup
 
-- User management (add/select users)
-- Add movies to a user's favorites by title (fetched from OMDb)
-- Update or delete movies from the list
-- Display posters and details for each movie
-- Error handling with custom 404 and 500 pages
-- Simple, responsive UI
-
----
-
-## 📂 Project Structure
-
-```
-flask-movie-library/
-│-- app.py              # Main Flask app
-│-- models.py           # SQLAlchemy models (User, Movie)
-│-- data_manager.py     # CRUD operations with ORM
-│-- omdb_service.py     # OMDb API integration
-│-- requirements.txt    # Dependencies
-│-- .env.example        # Example environment variables file
-│-- static/
-│   └── style.css       # Stylesheet
-│-- templates/
-│   │-- base.html
-│   │-- index.html
-│   │-- movies.html
-│   │-- 404.html
-│   └── 500.html
-```
-
----
-
-## ⚙️ Installation
-
-1. Clone the repo:
+1. Clone the repository:
    ```bash
-   git clone https://github.com/Helvanljar/flask-movie-library.git
+   git clone git@github.com:Helvanljar/flask-movie-library.git
    cd flask-movie-library
    ```
 
-2. Create a virtual environment:
+2. Create a virtual environment and activate it:
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate   # On Linux/Mac
-   venv\Scripts\activate    # On Windows
+   python -m venv venv
+   source venv/bin/activate   # macOS/Linux
+   venv\Scripts\activate      # Windows
    ```
 
 3. Install dependencies:
@@ -58,64 +32,21 @@ flask-movie-library/
    pip install -r requirements.txt
    ```
 
-4. Configure your environment variables:
-   - Copy `.env.example` to `.env`
-   - Edit `.env` and replace with your actual OMDb key:
-     ```
-     OMDB_API_KEY=your_real_key_here
-     ```
+4. Create a `.env` file in the root directory:
+   ```
+   OMDB_API_KEY=your_api_key_here
+   ```
 
 5. Run the app:
    ```bash
-   python app.py
+   flask run
    ```
+   Then open [http://localhost:5002](http://localhost:5000).
 
-6. Open your browser at:  
-   👉 http://127.0.0.1:5002/
-
----
-
-## 🔑 Environment Variables
-
-This project uses a `.env` file to store the OMDb API key securely.
-
-1. Copy the example file:
+6. Optional: Check app health:
    ```bash
-   cp .env.example .env
+   curl http://localhost:5000/health
    ```
 
-2. Edit `.env` and replace with your actual key:
-   ```
-   OMDB_API_KEY=your_real_key_here
-   ```
-
-3. Keep your `.env` out of version control (add it to `.gitignore`).
-
----
-
-## 🌐 Running the App on a Custom Port
-
-By default, this app runs on port **5002**.  
-You can change it in `app.py` if needed, or run:
-
-```bash
-flask run --port=5002
-```
-
----
-
-## 🛠 Technologies Used
-
-- Python 3  
-- Flask  
-- SQLAlchemy  
-- OMDb API  
-- python-dotenv  
-- HTML, CSS
-
----
-
-## 👤 Author
-
-- GitHub: [Helvanljar](https://github.com/Helvanljar)
-
+## Requirements
+See [requirements.txt](requirements.txt).
