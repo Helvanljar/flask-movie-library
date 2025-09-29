@@ -3,26 +3,23 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Virtual environment
+# Virtual env
 venv/
+.venv/
 ENV/
 env/
-.venv/
 
-# Environment variables
+# Environment
 .env
 
-# SQLite database
-*.sqlite
+# DB files
 *.db
+*.sqlite
 
-# IDE / Editor files
+# IDE
 .vscode/
 .idea/
 
-# Logs
-*.log
-
-# OS files
+# OS
 .DS_Store
 Thumbs.db

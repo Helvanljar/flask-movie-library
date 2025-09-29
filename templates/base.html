@@ -6,14 +6,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <h1>
             <a href="{{ url_for('index') }}" class="logo-link">🎥 MoviWeb App</a>
         </h1>
     </header>
 
-    <!-- Main content -->
     <main class="container">
         <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -29,7 +27,6 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 MoviWeb App</p>
     </footer>

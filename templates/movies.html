@@ -11,10 +11,13 @@
                 <img src="{{ movie.poster_url }}" alt="Poster for {{ movie.name }}" width="120"><br>
             {% endif %}
 
-            <!-- Inline form row -->
+            <!-- Inline update & delete row -->
             <div class="form-actions">
                 <form method="POST" action="{{ url_for('update_movie', user_id=user.id, movie_id=movie.id) }}">
-                    <input type="text" name="new_title" placeholder="New title" required>
+                    <input type="text" name="new_title" placeholder="New title">
+                    <input type="text" name="new_director" placeholder="New director">
+                    <input type="text" name="new_year" placeholder="New year">
+                    <input type="text" name="new_poster" placeholder="New poster URL">
                     <button type="submit">Update</button>
                 </form>
                 <form method="POST" action="{{ url_for('delete_movie', user_id=user.id, movie_id=movie.id) }}">

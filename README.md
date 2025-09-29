@@ -1,52 +1,34 @@
-# 🎥 MoviWeb App
+# 🎥 MoviWeb App (Improved)
 
-A Flask web application where users can manage their favorite movies. Movies are fetched dynamically from the OMDb API.
+A Flask web app to manage users and their favorite movies. Fetches details from OMDb.
+This build includes stronger validation, modular OMDb service, richer updates, error handling, and iOS-inspired UI.
 
 ## Features
-- User registration & selection
-- Add, update, and delete favorite movies
-- Fetch movie details (title, year, director, poster) from OMDb
-- iOS-inspired design (rounded cards, blue buttons)
-- Error handling with:
-  - Flash messages for success/error
-  - Custom 404 and 500 pages
-- Health check endpoint: `/health` (returns JSON with status & user count)
+- Add/select users (duplicate name check, sanitized input)
+- Per-user movies: add, update (title/director/year/poster), delete
+- OMDb lookup via dedicated `omdb_service.py`
+- Flash messages + 404/500 pages
+- `/health` endpoint to verify app & DB
+- Auto-creates SQLite DB on first run
+- Clean iOS-like UI
 
 ## Setup
+```bash
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env
+# edit .env and paste your OMDb key
+flask run --host=0.0.0.0 --port=5000
+```
+Open http://localhost:5000
 
-1. Clone the repository:
-   ```bash
-   git clone git@github.com:Helvanljar/flask-movie-library.git
-   cd flask-movie-library
-   ```
+## Health Check
+```bash
+curl http://localhost:5000/health
+```
 
-2. Create a virtual environment and activate it:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # macOS/Linux
-   venv\Scripts\activate      # Windows
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Create a `.env` file in the root directory:
-   ```
-   OMDB_API_KEY=your_api_key_here
-   ```
-
-5. Run the app:
-   ```bash
-   flask run
-   ```
-   Then open [http://localhost:5002](http://localhost:5000).
-
-6. Optional: Check app health:
-   ```bash
-   curl http://localhost:5000/health
-   ```
-
-## Requirements
-See [requirements.txt](requirements.txt).
+## Environment
+```
+OMDB_API_KEY=your_api_key_here
+```

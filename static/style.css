@@ -27,7 +27,7 @@ header {
 
 /* Container */
 main.container {
-    max-width: 700px;
+    max-width: 900px;
     margin: 2rem auto;
     padding: 1rem;
 }
@@ -139,9 +139,10 @@ input[type="text"]:focus {
 /* Inline row for update + delete */
 .form-actions {
     display: flex;
-    gap: 0.8rem;          /* spacing between input, update, delete */
+    gap: 0.8rem;
     align-items: center;
     margin-top: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .form-actions form {
@@ -149,10 +150,11 @@ input[type="text"]:focus {
     align-items: center;
     margin: 0;
     gap: 0.8rem;
+    flex-wrap: wrap;
 }
 
 .form-actions input[type="text"] {
-    flex: 1;
+    flex: 1 1 160px;
     margin: 0;
 }
 
@@ -174,20 +176,9 @@ input[type="text"]:focus {
     font-weight: 500;
 }
 
-.flashes li.success {
-    background: #34c759; /* iOS green */
-    color: white;
-}
-
-.flashes li.error {
-    background: #ff3b30; /* iOS red */
-    color: white;
-}
-
-.flashes li.warning {
-    background: #ffcc00; /* iOS yellow */
-    color: #1c1c1e;
-}
+.flashes li.success { background: #34c759; color: white; }
+.flashes li.error   { background: #ff3b30; color: white; }
+.flashes li.warning { background: #ffcc00; color: #1c1c1e; }
 
 /* Footer */
 footer {
